@@ -1,17 +1,24 @@
 import { StyleSheet, Text, View, Image } from 'react-native';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-export default class Avatar extends Component {
+interface AvatarProps {
+  fullName: string;
+  membership: string;
+}
+
+export default class Avatar extends Component<AvatarProps> {
   render() {
+    const { fullName, membership } = this.props;
+
     return (
       <View style={styles.profileBar}>
-            <Image style={styles.image} source={{uri: 'https://media.licdn.com/dms/image/D4E03AQFDDNumKzOjOw/profile-displayphoto-shrink_400_400/0/1674937590489?e=1717632000&v=beta&t=DrmmPE5SRuSiULEwQcDUFEaPRrMwJAIIXt99A-RDChQ'}} />
+        <Image style={styles.image} source={{uri: './test.png'}} />
             <View style={styles.textContainer}>
-                <Text style={styles.fullname}>Name Surname</Text>
-                <Text style={styles.memberShip}>Gold Member</Text>
+                <Text style={styles.fullName}>{fullName}</Text>
+                <Text style={styles.membership}>{membership}</Text>
             </View>
       </View>
-    )
+    );
   }
 }
 
@@ -31,11 +38,11 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         flex: 1,
     },
-    fullname: {
+    fullName: {
         fontSize: 18,
         color: '#F2F2F2',
     },
-    memberShip: {
+    membership: {
         fontSize: 14,
         color: '#DEDEDE',
     },
