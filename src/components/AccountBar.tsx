@@ -1,8 +1,10 @@
-import { Image, View, StyleSheet } from 'react-native';
+import { Image, View, StyleSheet, Text } from 'react-native';
 import React, { Component } from 'react';
 import Avatar from './Avatar';
 
-export default class AccountBar extends Component {
+interface AccountBarProps {}
+
+export default class AccountBar extends Component<AccountBarProps> {
   render() {
     return (
       <View style={styles.container}>
@@ -18,7 +20,7 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
   },
   notification: {
     width: 24,
